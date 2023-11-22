@@ -1,0 +1,94 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://script/map1.gd" type="Script" id=1]
+[ext_resource path="res://scene/zombie.gd" type="Script" id=2]
+[ext_resource path="res://scene/Gun.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scene/wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://image/bg/bg2.png" type="Texture" id=5]
+[ext_resource path="res://image/bg/house1.png" type="Texture" id=6]
+[ext_resource path="res://image/object/hp/red.png" type="Texture" id=7]
+[ext_resource path="res://image/object/hp/green.png" type="Texture" id=8]
+[ext_resource path="res://scene/hp_bar.gd" type="Script" id=9]
+[ext_resource path="res://image/object/Character/1/Char0001.png" type="Texture" id=10]
+[ext_resource path="res://image/object/Character/1/Char0000.png" type="Texture" id=11]
+[ext_resource path="res://image/object/Character/1/Char0002.png" type="Texture" id=12]
+[ext_resource path="res://image/object/Character/1/Char0003.png" type="Texture" id=13]
+[ext_resource path="res://image/bg/HP.png" type="Texture" id=14]
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="map1" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 257, 310 )
+scale = Vector2( 0.411376, 0.432624 )
+
+[node name="zombieSpwan" type="Timer" parent="."]
+autostart = true
+script = ExtResource( 2 )
+
+[node name="Bg2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 511, 298 )
+z_index = -100
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="House1" type="Sprite" parent="."]
+position = Vector2( 45, 511 )
+scale = Vector2( 0.992185, 1.04343 )
+texture = ExtResource( 6 )
+
+[node name="wall" parent="." instance=ExtResource( 4 )]
+position = Vector2( 269, 462 )
+scale = Vector2( 0.621867, 0.621867 )
+
+[node name="Gold" type="Label" parent="."]
+margin_left = 35.0
+margin_top = 30.0
+margin_right = 75.0
+margin_bottom = 44.0
+
+[node name="hp_bar" type="TextureProgress" parent="."]
+margin_left = 623.0
+margin_top = 16.0
+margin_right = 1007.0
+margin_bottom = 66.0
+max_value = 0.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+tint_over = Color( 1, 1, 1, 0 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="hp_bar"]
+position = Vector2( 31, 24 )
+scale = Vector2( 0.319444, 0.319444 )
+texture = ExtResource( 14 )
+
+[node name="Character" type="AnimatedSprite" parent="."]
+position = Vector2( 58, 458 )
+scale = Vector2( 0.265278, 0.265278 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="TileMap" parent="." instance=ExtResource( 15 )]
+tile_data = PoolIntArray( 1114112, 536870912, 0, 1114113, 536870912, 0, 1114114, 536870912, 0, 1114115, 536870912, 0, 1114116, 536870912, 0, 1114117, 536870912, 0, 1114118, 536870912, 0, 1114119, 536870912, 0, 1114120, 536870912, 0, 1114121, 536870912, 0, 1114122, 536870912, 0, 1114123, 536870912, 0, 1114124, 536870912, 0, 1114125, 536870912, 0, 1114126, 536870912, 0, 1114127, 536870912, 0, 1114128, 536870912, 0, 1114129, 536870912, 0, 1114130, 536870912, 0, 1114131, 536870912, 0, 1114132, 536870912, 0, 1114133, 536870912, 0, 1114134, 536870912, 0, 1114135, 536870912, 0, 1114136, 536870912, 0, 1114137, 536870912, 0, 1114138, 536870912, 0, 1114139, 536870912, 0, 1114140, 536870912, 0, 1114141, 536870912, 0, 1114142, 536870912, 0, 1114143, 536870912, 0, 1114144, 536870912, 0, 1114145, 536870912, 0, 1114146, 536870912, 0, 1114147, 536870912, 0, 1114148, 536870912, 0, 1114149, 536870912, 0, 1114150, 536870912, 0, 1114151, 536870912, 0, 1114152, 536870912, 0, 1114153, 536870912, 0, 1114154, 536870912, 0, 1114155, 536870912, 0, 1114156, 536870912, 0, 1114157, 536870912, 0, 1179648, 536870913, 0, 1179649, 536870913, 0, 1179650, 536870913, 0, 1179651, 536870913, 0, 1179652, 536870913, 0, 1179653, 536870913, 0, 1179654, 536870913, 0, 1179655, 536870913, 0, 1179656, 536870913, 0, 1179657, 536870913, 0, 1179658, 536870913, 0, 1179659, 536870913, 0, 1179660, 536870913, 0, 1179661, 536870913, 0, 1179662, 536870913, 0, 1179663, 536870913, 0, 1179664, 536870913, 0, 1179665, 536870913, 0, 1179666, 536870913, 0, 1179667, 536870913, 0, 1179668, 536870913, 0, 1179669, 536870913, 0, 1179670, 536870913, 0, 1179671, 536870913, 0, 1179672, 536870913, 0, 1179673, 536870913, 0, 1179674, 536870913, 0, 1179675, 536870913, 0, 1179676, 536870913, 0, 1179677, 536870913, 0, 1179678, 536870913, 0, 1179679, 536870913, 0, 1179680, 536870912, 0, 1179681, 536870912, 0, 1179682, 536870912, 0, 1179683, 536870912, 0, 1179684, 536870912, 0, 1179685, 536870912, 0, 1179686, 536870912, 0, 1179687, 536870912, 0, 1179688, 536870912, 0, 1179689, 536870912, 0, 1179690, 536870912, 0, 1179691, 536870912, 0, 1179692, 536870912, 0, 1179693, 536870912, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[connection signal="timeout" from="zombieSpwan" to="zombieSpwan" method="_on_zombie_timeout"]
